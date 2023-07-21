@@ -7,9 +7,9 @@ async function main() {
 
   const NFT = await hre.ethers.getContractFactory("NFT")
   const nft = await NFT.deploy(NAME, SYMBOL, COST)
-  await nft.deployed()
+  await nft.waitForDeployment()
 
-  console.log(`Deployed NFT Contract at: ${nft.address}`)
+  console.log(`Deployed NFT Contract at: ${nft.getAddress()}`)
 }
 
 // We recommend this pattern to be able to use async/await everywhere

@@ -72,7 +72,7 @@ describe('NFT', () => {
     })
 
     it('Updates the contract balance', async () => {
-      const result = await ethers.provider.getBalance(nft.address)
+      const result = await ethers.provider.getBalance(nft.getAddress())
       expect(result).to.equal(0)
     })
   })
