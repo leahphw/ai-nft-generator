@@ -9,13 +9,12 @@
 :root {
   --clr-white: #FFFFFF;
   --clr-black: #202020;
-  --clr-blue: #6C63FF;
-  --clr-blue-2: #4c46b6;
+  --clr-blue: #2374AB;
+  --clr-blue-2: #172A3A;
 }
 
 body {
   margin: 0;
-  font-family: "Play";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -54,7 +53,6 @@ nav {
   border: none;
   border-radius: 4px;
 
-  font-family: "Play";
   font-size: 1.10em;
   font-weight: 600;
 
@@ -66,7 +64,6 @@ nav {
   background-color: var(--clr-blue-2);
 }
 
-/* ------------------------------------------------------ */
 /* -- FORM -- */
 
 .form {
@@ -110,7 +107,6 @@ form input[type="submit"] {
   border: none;
   border-radius: 4px;
 
-  font-family: "Play";
   font-size: 1.10em;
   font-weight: 400;
 
@@ -122,7 +118,6 @@ form input[type="submit"]:hover {
   background-color: var(--clr-blue-2);
 }
 
-/* ------------------------------------------------------ */
 /* -- IMAGE -- */
 
 .image {
@@ -156,7 +151,6 @@ form input[type="submit"]:hover {
   margin: 0 10px;
 }
 
-/* ------------------------------------------------------ */
 /* -- TEXT -- */
 p {
   display: flex;
