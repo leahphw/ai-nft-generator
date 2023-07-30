@@ -19,7 +19,7 @@ function App() {
   const [account, setAccount] = useState(null)
 
   const loadBlockchainData = async () => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const provider = new ethers.BrowserProvider(window.ethereum)
     setProvider(provider)
   }
 
@@ -36,7 +36,13 @@ function App() {
           <input type='text' placeholder='NFT Prompt'></input>
           <input type='submit' value='Create & Mint'></input>
         </form>
+
+        <div className='image'>
+          <img src='' alt='AI Generated Image'></img>
+        </div>
       </div>
+
+      <p className='viewmtd'>View&nbsp; <a href='' target='_blank' rel='noreferer'>Metadata</a></p>
 
     </div>
   );
