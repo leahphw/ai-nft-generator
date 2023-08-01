@@ -14,7 +14,6 @@ import NFT from './abis/NFT.json'
 // Config
 import config from './config.json';
 
-
 function App() {
   const [provider, setProvider] = useState(null)
   const [account, setAccount] = useState(null)
@@ -22,11 +21,14 @@ function App() {
   const [name, setName] = useState("")
   const [description, setDescription] = useState("")
   const [image, setImage] = useState(null)
+  const [url, setURL] = useState(null)
 
   // Handlers
   const submitHandler = async (e) => {
     e.preventDefault()
     const imageData = createImage()
+    const url = await uploadImage()
+    console.log("url:", url)
   }
 
   const createImage = async () => {
@@ -58,6 +60,23 @@ function App() {
     return data
   }
 
+  const uploadImage = async (imageData) => {
+    console.log("uploading image...")
+
+    // Declare NFT Storage
+    const nftstorage = new NFTStorage({ token: process.env.REACT_APP_NFT_STORAGE_API_KEY })
+    const { ipnft } = await nftstorage.store({
+      image: new File([imageData], 'image.jpeg', { type: "image/jpeg" }),
+      name: name,
+      description: description,
+    })
+
+    const url = `https://ipfs.io/ipfs/${ipnft}/metadata.json`
+    setURL(url)
+    
+    return url
+  }
+
   const loadBlockchainData = async () => {
     const provider = new ethers.getDefaultProvider()
     setProvider(provider)
@@ -82,7 +101,7 @@ function App() {
         </div>
       </div>
 
-      <p className='viewmtd'>View&nbsp; <a href='' target='_blank' rel='noreferer'>Metadata</a></p>
+      <p className='viewmtd'>View&nbsp; <a href={url} target='_blank' rel='noreferer'>Metadata</a></p>
 
     </div>
   );
