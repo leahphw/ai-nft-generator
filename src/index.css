@@ -95,6 +95,7 @@ form input[type="text"] {
   border-radius: 4px;
 
   font-size: 1.10em;
+  color: white;
 }
 
 form input[type="submit"] {
