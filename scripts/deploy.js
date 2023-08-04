@@ -3,13 +3,13 @@ const hre = require("hardhat");
 async function main() {
   const NAME = "AI Generated NFT"
   const SYMBOL = "AINFT"
-  const COST = ethers.parseUnits("1", "ether")
+  const COST = ethers.utils.parseUnits("1", "ether")
 
   const NFT = await hre.ethers.getContractFactory("NFT")
   const nft = await NFT.deploy(NAME, SYMBOL, COST)
-  await nft.waitForDeployment()
+  await nft.deployed()
 
-  console.log(`Deployed NFT Contract at: ${nft.getAddress()}`)
+  console.log(`Deployed NFT Contract at: ${nft.address}`)
 }
 
 // We recommend this pattern to be able to use async/await everywhere

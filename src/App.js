@@ -22,6 +22,7 @@ function App() {
   const [description, setDescription] = useState("")
   const [image, setImage] = useState(null)
   const [url, setURL] = useState(null)
+  const [nft, setNFT] = useState(null)
 
   // Handlers
   const submitHandler = async (e) => {
@@ -80,6 +81,14 @@ function App() {
   const loadBlockchainData = async () => {
     const provider = new ethers.getDefaultProvider()
     setProvider(provider)
+
+    const network = await provider.getNetwork()
+    const nft = new ethers.Contract('0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0', NFT, provider)
+    setNFT(nft)
+    
+    // Testing
+    const name = await nft.name()
+    console.log("name:", name)
   }
 
   useEffect(() => {

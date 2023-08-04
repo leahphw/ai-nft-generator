@@ -4,14 +4,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #202020;
+  background-color: #121212;
 }
 
 :root {
-  --clr-white: #202020;
+  --clr-white: #121212;
   --clr-black: #fff;
-  --clr-blue: #BEE3DB;
-  --clr-blue-2: #5ABCB9;
+  --clr-blue: #bb86fc;
+  --clr-blue-2: #3700b3;
 }
 
 body {
